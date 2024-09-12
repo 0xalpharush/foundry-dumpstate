@@ -10,6 +10,9 @@ contract CounterTest is Test {
     function setUp() public {
         counter = new Counter();
         counter.setNumber(0);
+        vm.deal(address(counter), 10000000000000000000000);
+        vm.deal(address(0xdead), 10000000000000000000000);
+        vm.dumpState("setUp.json");
     }
 
     function test_Increment() public {
